@@ -88,7 +88,7 @@
 #pint{
     width: 1.5rem;
     height: 1.5rem;
-    color: red;
+    color: yellow;
 }
 
 #barrabusqueda{
@@ -201,11 +201,11 @@
     background-color: #d8d5d5;
 }
 
-#k{
-    width: 40%;
-    height: 40%;
+#pi{
+    width: 60%;
+    height: 60%;
     font-size: 10px;
-    background-color: #d8d5d5;
+    color: #818080;
     border-radius: 50%;
     text-align: center;
     align-items: center;
