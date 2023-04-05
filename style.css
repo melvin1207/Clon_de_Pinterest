@@ -1,0 +1,436 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px; /*es igual a 1rem*/
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+    --card_width: 15.625rem;
+    /*~250px Anchura de la tarjeta/pin */
+    --row_increment: 0.625rem;
+    /*~10px Al estar usando CSS grid, cada tarjeta/pin estará hecha con incrementos de 10px para las filas */
+    --card_border_radius: 1rem;
+    /*~16px  Redondeo en los bordes de las tarjetas/pines*/
+    --card_small: 26;
+    /* Factor de crecimiento para tarjetas pequeñas: 26*0.625rem */
+    --card_medium: 33;
+    /* Factor de crecimiento para tarjetas medianas: 26*0.625rem */
+    --card_large: 45;
+    /* Factor de crecimiento para tarjetas grandes: 26*0.625rem */
+}
+
+nav{
+    position: fixed;
+    height: 5rem;
+    width: 100%;
+    background-color: white;
+    display: flex;
+}
+
+#intro-pinterest{
+    margin-left: 2rem;
+    width: 16rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: center
+} 
+
+#logo{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#logo:hover{
+    background-color: #d8d5d5;
+}
+
+#inicio{
+    width: 4.465rem;
+    height: 3rem;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hoy{
+    width: 3.84rem;
+    height: 3rem;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+#crear{
+    width: 5.65rem;
+    height: 3rem;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+#pint{
+    width: 1.5rem;
+    height: 1.5rem;
+    color: red;
+}
+
+#barrabusqueda{
+    flex-grow: 4;
+    min-width: 5rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#search{
+    width: 95%;
+    height: 60%;
+    background-color: #e2e2e2;
+    border-radius: 50px;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search:hover{
+    background-color: #d8d5d5;
+}
+
+#search>svg{
+    margin-left: 1rem;
+    height: 2rem;
+    color: #818080;
+    top: 0.01rem;
+    width: 20px;
+    left: 35px;
+}
+
+.finder{
+    border-radius: 50px;
+    width: 97%;
+    height: 100%;
+    background-color: #e2e2e2;
+    border: 0;
+}
+
+.finder:hover{
+    background-color: #d8d5d5;
+}
+
+#perfil{
+    width: 14rem;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+#notificaciones{
+    margin-left: 5px;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#notificaciones:hover{
+    background-color: #d8d5d5;
+}
+
+#not-bell{
+    width: 57%;
+    height: 57%;
+    color: #818080;
+}
+
+#mesajes{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mesajes:hover{
+    background-color: #d8d5d5;
+}
+
+#me-dot{
+    width: 60%;
+    height: 60%;
+    color: #818080;
+}
+
+#foto{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#foto:hover{
+    background-color: #d8d5d5;
+}
+
+#k{
+    width: 40%;
+    height: 40%;
+    font-size: 10px;
+    background-color: #d8d5d5;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+}
+
+#extras{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#extras:hover{
+    background-color: #d8d5d5;
+}
+
+#ex-d{
+    width: 60%;
+    height: 60%;
+    color: #818080;
+}
+
+
+main {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 5rem;
+    z-index: -1;
+}
+
+.pin_container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card_width));
+    grid-auto-rows: var(--row_increment);
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    padding: 0;
+    margin: 15px 10px;
+    border-radius: var(--card_border_radius);
+}
+
+.card_small {
+    grid-row-end: span var(--card_small);
+}
+
+.card_medium {
+    grid-row-end: span var(--card_medium);
+}
+
+.card_large {
+    grid-row-end: span var(--card_large);
+}
+
+.card_small>img{
+    width: 14.4rem;
+    height: 14.5rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--card_border_radius);
+}
+
+.card_medium>img{
+    width: 14.42rem;
+    height: 18.8rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--card_border_radius);
+}
+
+.card_large>img{
+    width: 14.42rem;
+    height: 26.3rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--card_border_radius);
+}
+
+.card_content{
+    width: 100%;
+    height: 100%;
+    padding-top: 0.5rem;
+    position: absolute;
+    text-align: center;
+    background-color: aqua;
+    border-radius: var(--card_border_radius);
+}
+
+.card_buttons_on_hover{
+    width: 100%;
+    height: 100%;
+    padding-top: 0.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.493);
+    color: white;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: var(--card_border_radius);
+}
+
+.card_buttons_on_hover:hover{
+    opacity: 1;
+}
+
+.arribal{
+    align-self: flex-end;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 40%;
+    height: 16%;
+    background-color: red;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.abajol{
+    margin-bottom: 5px;
+    width: 90%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.arribas{
+    align-self: flex-end;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 40%;
+    height: 20%;
+    background-color: red;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.abajos{
+    margin-bottom: 5px;
+    width: 90%;
+    height: 17%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.arribam{
+    align-self: flex-end;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 40%;
+    height: 20%;
+    background-color: red;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.abajom{
+    margin-bottom: 5px;
+    width: 90%;
+    height: 14%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.info{
+    width: 60%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: #faf4f4;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descargar{
+    width: 18%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #faf4f4;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.more{
+    width: 18%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #faf4f4;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
