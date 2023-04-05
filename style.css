@@ -21,7 +21,7 @@
     /* Factor de crecimiento para tarjetas grandes: 26*0.625rem */
 }
 
-nav{
+#navbar-pinterest{
     position: fixed;
     height: 5rem;
     width: 100%;
@@ -40,7 +40,7 @@ nav{
     justify-content: center
 } 
 
-#logo{
+#pinterest-icon{
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
@@ -51,7 +51,7 @@ nav{
     
 }
 
-#logo:hover{
+#pinterest-icon:hover{
     background-color: #d8d5d5;
 }
 
@@ -146,7 +146,7 @@ nav{
 
 }
 
-#notificaciones{
+#notifications{
     margin-left: 5px;
     height: 3rem;
     width: 3rem;
@@ -157,7 +157,7 @@ nav{
     align-items: center;
 }
 
-#notificaciones:hover{
+#notifications:hover{
     background-color: #d8d5d5;
 }
 
@@ -167,7 +167,7 @@ nav{
     color: #818080;
 }
 
-#mesajes{
+#message{
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
@@ -177,7 +177,7 @@ nav{
     align-items: center;
 }
 
-#mesajes:hover{
+#message:hover{
     background-color: #d8d5d5;
 }
 
@@ -187,7 +187,7 @@ nav{
     color: #818080;
 }
 
-#foto{
+#profile-img{
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
@@ -197,7 +197,7 @@ nav{
     align-items: center;
 }
 
-#foto:hover{
+#profile-img:hover{
     background-color: #d8d5d5;
 }
 
@@ -241,7 +241,7 @@ main {
     z-index: -1;
 }
 
-.pin_container {
+#content{
     margin: 0;
     padding: 0;
     width: 100%;
